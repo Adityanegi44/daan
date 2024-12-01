@@ -2,6 +2,12 @@ from flask import render_template, redirect, url_for, flash, request
 from flask_login import login_user, current_user, login_required
 from werkzeug.security import generate_password_hash, check_password_hash
 
+# Route for the homepage
+@app.route('/')
+def home():
+    # This will render the home page template
+    return render_template('home.html')
+
 @app.route('/login_ngo', methods=['GET', 'POST'])
 def login_ngo():
     if current_user.is_authenticated:
@@ -90,3 +96,10 @@ def donate():
                     flash(f'{field}: {error}', 'error')
                     
     return render_template('donate.html', form=form)
+
+# Ensure the dashboard route exists
+@app.route('/dashboard')
+@login_required
+def dashboard():
+    return render_template('dashboard.html')  # Ensure this template exists
+

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Individual Registration</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-gray-900 font-sans">
+    <div class="container mx-auto p-8 max-w-lg">
+        <h1 class="text-4xl font-bold text-center text-blue-600 mb-4">Individual Registration</h1>
+        <p class="text-center text-lg text-gray-600 mb-6">Please fill out the form below to register as an individual donor.</p>
+
+        <!-- Registration Form -->
+        <form action="/individual_register" method="POST" class="bg-white p-6 rounded-lg shadow-lg space-y-4">
+            <!-- CSRF Token -->
+            {{ form.csrf_token }}
+
+            <!-- Full Name -->
+            <div>
+                <label for="full_name" class="block text-lg text-gray-700">Full Name</label>
+                {{ form.full_name(class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500") }}
+            </div>
+
+            <!-- Email Address -->
+            <div>
+                <label for="email" class="block text-lg text-gray-700">Email Address</label>
+                {{ form.email(class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500") }}
+            </div>
+
+            <!-- Password -->
+            <div>
+                <label for="password" class="block text-lg text-gray-700">Password</label>
+                {{ form.password(class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500") }}
+            </div>
+
+            <!-- Confirm Password -->
+            <div>
+                <label for="confirm_password" class="block text-lg text-gray-700">Confirm Password</label>
+                {{ form.confirm_password(class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500") }}
+            </div>
+
+            <!-- Phone Number -->
+            <div>
+                <label for="phone" class="block text-lg text-gray-700">Phone Number</label>
+                {{ form.phone(class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500") }}
+            </div>
+
+            <!-- Address -->
+            <div>
+                <label for="address" class="block text-lg text-gray-700">Address</label>
+                {{ form.address(class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500") }}
+            </div>
+
+            <!-- Preferred Donation Amount -->
+            <div>
+                <label for="donation_amount" class="block text-lg text-gray-700">Preferred Donation Amount</label>
+                {{ form.donation_amount(class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500") }}
+            </div>
+
+            <!-- Submit Button -->
+            <div class="flex justify-center">
+                {{ form.submit(class="w-full bg-blue-600 text-white py-3 rounded-md hover:bg-blue-700 transition") }}
+            </div>
+        </form>
+
+        <p class="mt-3 text-center">
+            Already registered? <a href="/individual_login" class="text-blue-600">Login here</a>
+        </p>
+    </div>
+</body>
+</html>

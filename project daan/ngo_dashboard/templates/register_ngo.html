@@ -3,27 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/static/styles.css">
-    <title>Register</title>
+    <title>NGO Registration</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <h2>NGO Registration</h2>
-    <form method="post">
-        {{ form.csrf_token }}
-        
-        <label for="email">{{ form.email.label }}</label>
-        {{ form.email }}<br>
-        
-        <label for="password">{{ form.password.label }}</label>
-        {{ form.password }}<br>
-        
-        <label for="confirm">{{ form.confirm.label }}</label>
-        {{ form.confirm }}<br>
-        
-        <label for="ngo_certificate">{{ form.ngo_certificate.label }}</label>
-        {{ form.ngo_certificate }}<br>
-        
-        {{ form.submit }}
-    </form>
+<body class="bg-gray-100 text-gray-900 font-sans">
+    <div class="container mx-auto p-8 max-w-lg">
+        <h1 class="text-4xl font-bold text-center text-blue-600 mb-4">NGO Registration</h1>
+        <p class="text-center text-lg text-gray-600 mb-6">Please fill out the form below to register as an NGO.</p>
+
+        <!-- Registration Form -->
+        <form method="POST" class="bg-white p-6 rounded-lg shadow-lg space-y-4">
+            {{ form.csrf_token }}
+
+            <div>
+                <label for="email" class="block text-lg text-gray-700">Email Address</label>
+                {{ form.email(class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500") }}
+            </div>
+
+            <div>
+                <label for="password" class="block text-lg text-gray-700">Password</label>
+                {{ form.password(class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500") }}
+            </div>
+
+            <div>
+                <label for="confirm" class="block text-lg text-gray-700">Confirm Password</label>
+                {{ form.confirm(class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500") }}
+            </div>
+
+            <div>
+                <label for="ngo_certificate" class="block text-lg text-gray-700">NGO Certificate</label>
+                {{ form.ngo_certificate(class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500") }}
+            </div>
+
+            <div class="flex justify-center">
+                {{ form.submit(class="w-full bg-blue-600 text-white py-3 rounded-md hover:bg-blue-700 transition") }}
+            </div>
+        </form>
+    </div>
 </body>
 </html>
